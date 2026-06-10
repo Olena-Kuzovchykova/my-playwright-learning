@@ -24,7 +24,7 @@ test.describe("SauceDemo login tests", () => {
       "Epic sadface: Username and password do not match any user in this service");
   });
 
-  // Task 2.1 — Negative login for locked user
+  // Task 2.1 — Locked user validation
   test('Locked out user should see error message', async ({ page }) => {
     await page.getByTestId("username").fill("locked_out_user");
     await page.getByTestId("password").fill("secret_sauce");
