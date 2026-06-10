@@ -23,6 +23,17 @@ test.describe("SauceDemo login tests", () => {
     await expect(page.getByTestId("error")).toHaveText(
       "Epic sadface: Username and password do not match any user in this service");
   });
+
+  // Task 2.1 — Negative login for locked user
+  test('Locked out user should see error message', async ({ page }) => {
+    await page.getByTestId("username").fill("locked_out_user");
+    await page.getByTestId("password").fill("secret_sauce");
+    await page.getByTestId("login-button").click();
+    await expect(page.getByTestId("error"), "Error should appear for locked out user").toBeVisible();
+    await expect(page.getByTestId("error")).toHaveText(
+      "Epic sadface: Sorry, this user has been locked out."
+    );
+  });
 });
 
 test.describe('SauceDemo authenticated user tests', () => {
