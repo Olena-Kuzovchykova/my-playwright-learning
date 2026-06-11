@@ -25,7 +25,7 @@ test.describe("SauceDemo login tests", () => {
   });
 
   // Task 2.1 — Locked user validation
-  test.only('Locked out user should see error message', async ({ page }) => {
+  test('Locked out user should see error message', async ({ page }) => {
     await page.getByTestId("username").fill("locked_out_user");
     await page.getByTestId("password").fill("secret_sauce");
     await page.getByTestId("login-button").click();
