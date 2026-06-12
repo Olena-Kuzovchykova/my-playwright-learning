@@ -7,7 +7,7 @@ test.describe('Final Project - SauceDemo tests', () => {
         await page.getByTestId('username').fill('standard_user');
         await page.getByTestId('password').fill('secret_sauce');
         await page.getByTestId('login-button').click();
-        await expect(page, 'User should be redirected to inventory page after successfullogin').toHaveURL(/inventory/);
+        await expect(page, 'User should be redirected to inventory page after successful login').toHaveURL(/inventory/);
         await expect(page.getByText('Products'), 'Products page title should be visible after login').toBeVisible();
 
     });
